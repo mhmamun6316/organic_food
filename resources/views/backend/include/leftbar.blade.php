@@ -42,8 +42,10 @@
         </li>
         <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Apps &amp; Pages</span><i data-feather="more-horizontal"></i>
         </li>
-        <li class=" nav-item"><a class="d-flex align-items-center" href="app-email.html"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Email</span></a>
+
+        <li class=" nav-item"><a  href="{{ route('all.category') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Category</span></a>
         </li>
+
         <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Invoice</span></a>
           <ul class="menu-content">
             <li><a class="d-flex align-items-center" href="app-invoice-list.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,3 +36,8 @@ Route::middleware(['auth.admin:admin', 'verified'])->get('/admin/dashboard', fun
 Route::middleware(['auth:sanctum,web', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+// category routes
+Route::get('category/show',[CategoryController::Class,'CategoryView'])->name('all.category');
+Route::post('category/store',[CategoryController::Class,'CategoryStore'])->name('add.category');

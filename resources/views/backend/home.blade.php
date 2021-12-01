@@ -2,6 +2,6 @@
 
 @section('admin_content')
 
-fucking dashboard will goes from here
+Main dashboar goes here
 
 @endsection
