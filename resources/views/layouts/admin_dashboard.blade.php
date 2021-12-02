@@ -47,6 +47,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('backend') }}/assets/css/style.css">
     <!-- END: Custom CSS-->
 
+    <link rel="stylesheet" href="//cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
+
   </head>
   <!-- END: Head-->
 
@@ -93,6 +95,10 @@
 
     <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
     <!-- END: Footer-->
+
+    <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}
 
 
     <!-- BEGIN: Vendor JS-->

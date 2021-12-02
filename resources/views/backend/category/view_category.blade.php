@@ -28,10 +28,11 @@
                     <tr>
                         <td>{{ $sn++ }}</td>
                         <td>{{ $category->category_name_en }}</td>
-                        <td>{{ $category->category_name_en }}</td>
+                        <td>{{ $category->category_name_bn }}</td>
                         <td>
-                            <button type="button" class="btn btn-relief-warning">Edit</button>
-                            <button type="button" class="btn btn-relief-danger">Delete</button>
+                            <button type="button" class="btn btn-relief-warning"><a href="{{ route('edit.category',$category->id) }}">Edit</a></button>
+                            <button type="button" class="btn btn-relief-danger"><a href="{{ route('delete.category',$category->id) }}">
+                              Delete</a> </button>
                         </td>
                     </tr>
                     @endforeach
