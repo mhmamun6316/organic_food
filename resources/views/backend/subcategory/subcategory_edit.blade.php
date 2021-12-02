@@ -11,19 +11,27 @@
       <div class="col-6">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Category Edit</h4>
+            <h4 class="card-title">Sub Category Edit</h4>
           </div>
           <div class="card-body">
-            <form  method="POST" action="{{ route('update.category') }}" class="form form-vertical">
+            <form  method="POST" action="{{ route('update.subcategory') }}" class="form form-vertical">
                 @csrf
 
-              <input type="hidden" name="category_id" value="{{ $category->id }}">
+              <input type="hidden" name="category_id" value="{{ $subcategory->id }}">
               <div class="row">
                 <div class="col-12">
                   <div class="mb-1">
                     <label class="form-label" for="first-name-icon">Category Name English</label>
                     <div class="input-group input-group-merge">
-                      <input type="text" id="first-name-icon" class="form-control" name="cat_name_en" value="{{ $category->category_name_en }}">
+                        <select class="form-select form-select-lg" id="selectLarge" name="category_id">
+                            <option disabled>Open this select menu</option>
+                            @foreach ($category as $cat)
+                                <option value="{{ $cat->id }}"
+                                  {{ $cat->id == $subcategory->category_id ? 'selected' : '' }} >
+                                  {{  ucwords($cat->category_name_en) }}
+                                </option>
+                            @endforeach
+                        </select>
                     </div>
                     @error('cat_name_en')
                           <span class="text-danger">{{ $message }}</span>
@@ -32,10 +40,21 @@
                 </div>
                 <div class="col-12">
                     <div class="mb-1">
-                      <label class="form-label" for="first-name-icon">Category Name Bangla</label>
+                      <label class="form-label" for="first-name-icon">Sub Category Name English</label>
+                      <div class="input-group input-group-merge">
+                        <input type="text" id="first-name-icon" class="form-control" name="cat_name_en" value="{{ $subcategory->subcategory_name_en }}">
+                      </div>
+                      @error('cat_name_en')
+                            <span class="text-danger">{{ $message }}</span>
+                      @enderror
+                    </div>
+                  </div>
+                <div class="col-12">
+                    <div class="mb-1">
+                      <label class="form-label" for="first-name-icon">Sub Category Name Bangla</label>
                       <div class="input-group input-group-merge">
                         <input type="text" id="first-name-icon" class="form-control" name="cat_name_bn"
-                        value="{{ $category->category_name_bn }}">
+                        value="{{ $subcategory->subcategory_name_bn }}">
                       </div>
                       @error('cat_name_bn')
                           <span class="text-danger">{{ $message }}</span>

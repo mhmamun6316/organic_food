@@ -8,7 +8,7 @@
       <div class="col-8">
         <div class="card">
           <div class="card-header border-bottom">
-            <h4 class="card-title">All Category</h4>
+            <h4 class="card-title">All Sub Category</h4>
           </div>
           <div class="card-datatable">
             <table class="dt-responsive table dataTable dtr-column collapsed" id="DataTables_Table_3" role="grid"     aria-describedby="DataTables_Table_3_info">
@@ -16,7 +16,8 @@
                     <tr>
                         <th>SN</th>
                         <th>Category Name En</th>
-                        <th>Category Name Bn</th>
+                        <th>Sub Category Name En</th>
+                        <th>Sub Category Name Bn</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -24,14 +25,15 @@
                     @php
                         $sn=1;
                     @endphp
-                    @foreach ($categorys as $category)
+                    @foreach ($subcategories as $subcategory)
                     <tr>
                         <td>{{ $sn++ }}</td>
-                        <td>{{ $category->category_name_en }}</td>
-                        <td>{{ $category->category_name_bn }}</td>
+                        <td>{{ $subcategory->category->category_name_en }}</td>
+                        <td>{{ $subcategory->subcategory_name_en }}</td>
+                        <td>{{ $subcategory->subcategory_name_bn }}</td>
                         <td>
-                            <button type="button" class="btn btn-relief-warning"><a href="{{ route('edit.category',$category->id) }}">Edit</a></button>
-                            <button type="button" class="btn btn-relief-danger"><a href="{{ route('delete.category',$category->id) }}">
+                            <button type="button" class="btn btn-relief-warning mb-1"><a href="{{ route('edit.subcategory',$subcategory->id) }}">Edit</a></button>
+                            <button type="button" class="btn btn-relief-danger"><a href="{{ route('delete.subcategory',$subcategory->id) }}">
                               Delete</a> </button>
                         </td>
                     </tr>
@@ -45,31 +47,46 @@
       <div class="col-4">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Category Add</h4>
+            <h4 class="card-title">Sub Category Add</h4>
           </div>
           <div class="card-body">
-            <form  method="POST" action="{{ route('add.category') }}" class="form form-vertical">
+            <form  method="POST" action="{{ route('add.subcategory') }}" class="form form-vertical">
                 @csrf
               <div class="row">
                 <div class="col-12">
+                    <div class="mb-1">
+                      <label class="form-label" for="first-name-icon">Category Name English</label>
+                      <div class="input-group">
+                        <select class="form-select form-select-lg" id="selectLarge" name="category_id">
+                            <option disabled >Open this select menu</option>
+                            @foreach ($category as $cat)
+                                <option value="{{ $cat->id }}">
+                                  {{  ucwords($cat->category_name_en) }}
+                                </option>
+                            @endforeach
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                <div class="col-12">
                   <div class="mb-1">
-                    <label class="form-label" for="first-name-icon">Category Name English</label>
+                    <label class="form-label" for="first-name-icon">Sub Category Name English</label>
                     <div class="input-group input-group-merge">
                       <input type="text" id="first-name-icon" class="form-control" name="cat_name_en" placeholder="Category Name English">
                     </div>
                     @error('cat_name_en')
-                          <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                     @enderror
                   </div>
                 </div>
                 <div class="col-12">
                     <div class="mb-1">
-                      <label class="form-label" for="first-name-icon">Category Name Bangla</label>
+                      <label class="form-label" for="first-name-icon">Sub Category Name Bangla</label>
                       <div class="input-group input-group-merge">
                         <input type="text" id="first-name-icon" class="form-control" name="cat_name_bn" placeholder="Category Name Bangla">
                       </div>
                       @error('cat_name_bn')
-                          <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                       @enderror
                     </div>
                   </div>

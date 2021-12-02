@@ -12,11 +12,16 @@ class CategoryController extends Controller
 {
     public function CategoryView(){
         $categorys = Category::all();
-        // notify()->success('Category added successfully!');
         return view('backend.category.view_category',compact('categorys'));
     }
 
     public function CategoryStore(Request $request){
+
+        $request->validate([
+            'cat_name_en' => 'required',
+            'cat_name_bn' => 'required',
+       ]);
+       
         $category = new Category();
         $category->category_name_en = $request->cat_name_en;
         $category->category_name_bn = $request->cat_name_bn;
@@ -38,6 +43,11 @@ class CategoryController extends Controller
     }
 
     public function CategoryUpdate(Request $request){
+
+        $request->validate([
+            'cat_name_en' => 'required',
+            'cat_name_bn' => 'required',
+       ]);
 
         $cat_id = $request->category_id;
 
