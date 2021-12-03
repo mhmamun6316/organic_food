@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\SubcategoryController;
+use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\Frontend\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +18,7 @@ use App\Http\Controllers\Admin\SubcategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [IndexController::class,'index']);
 
 
 // Admin Login View
@@ -52,3 +52,10 @@ Route::post('subcategory/store',[SubcategoryController::Class,'SubCategoryStore'
 Route::get('subcategory/edit/{id}',[SubcategoryController::Class,'SubCategoryEdit'])->name('edit.subcategory');
 Route::post('subcategory/update',[SubcategoryController::class,'SubCategoryUpdate'])->name('update.subcategory');
 Route::get('subcategory/delete/{id}',[SubcategoryController::Class,'SubCategoryDelete'])->name('delete.subcategory');
+
+//sub category routes
+Route::get('slider/show',[SliderController::Class,'SliderView'])->name('all.sliders');
+Route::post('slider/store',[SliderController::Class,'SliderStore'])->name('store.slider');
+Route::get('slider/edit/{id}',[SliderController::Class,'SliderEdit'])->name('edit.slider');
+Route::post('slider/update',[SliderController::class,'SliderUpdate'])->name('update.slider');
+Route::get('slider/delete/{id}',[SliderController::Class,'SliderDelete'])->name('delete.slider');
