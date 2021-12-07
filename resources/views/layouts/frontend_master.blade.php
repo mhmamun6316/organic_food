@@ -12,7 +12,7 @@
 		<meta name="author" content="tivatheme">
 		
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="img/favicon.png" type="image/png">
+		<link rel="shortcut icon" href="{{ asset('frontend') }}/img/favicon.png" type="image/png">
 		
 		<!-- Mobile Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -83,14 +83,14 @@
 									<!-- Language -->
 									<div class="dropdown language">
 										<div class="dropdown-toggle" data-toggle="dropdown">
-											<img src="img/language-en.jpg" alt="Language English">
+											<img src="{{ asset('frontend') }}/img/language-en.jpg" alt="Language English">
 										</div>
 										<div class="dropdown-menu">
 											<div class="item">
-												<a href="#" title="Language English"><img src="img/language-en.jpg" alt="Language English"> English</a>
+												<a href="#" title="Language English"><img src="{{ asset('frontend') }}/img/language-en.jpg" alt="Language English"> English</a>
 											</div>
 											<div class="item">
-												<a href="#" title="Language French"><img src="img/language-fr.jpg" alt="Language French"> French</a>
+												<a href="#" title="Language French"><img src="{{ asset('frontend') }}/img/language-fr.jpg" alt="Language French"> French</a>
 											</div>
 										</div>
 									</div>
@@ -126,7 +126,7 @@
 								<!-- Logo -->
 								<div class="logo">
 									<a href="home-2.html">
-										<img class="img-responsive" src="img/logo.png" alt="Logo">
+										<img class="img-responsive" src="{{ asset('frontend') }}/img/logo.png" alt="Logo">
 									</a>
 								</div>
 								
@@ -155,23 +155,23 @@
 											<div class="dropdown-menu">
 												<ul>
 													<li class="has-image">
-														<img src="img/product/product-category-1.png" alt="Product Category Image">
+														<img src="{{ asset('frontend') }}/img/product/product-category-1.png" alt="Product Category Image">
 														<a href="product-grid-left-sidebar.html" title="Vegetables">Vegetables</a>
 														</li>
 													<li class="has-image">
-														<img src="img/product/product-category-2.png" alt="Product Category Image">
+														<img src="{{ asset('frontend') }}/img/product/product-category-2.png" alt="Product Category Image">
 														<a href="product-grid-left-sidebar.html" title="Fruits">Fruits</a>
 													</li>
 													<li class="has-image">
-														<img src="img/product/product-category-3.png" alt="Product Category Image">
+														<img src="{{ asset('frontend') }}/img/product/product-category-3.png" alt="Product Category Image">
 														<a href="product-grid-left-sidebar.html" title="Bread">Bread</a>
 													</li>
 													<li class="has-image">
-														<img src="img/product/product-category-4.png" alt="Product Category Image">
+														<img src="{{ asset('frontend') }}/img/product/product-category-4.png" alt="Product Category Image">
 														<a href="product-grid-left-sidebar.html" title="Juices">Juices</a>
 													</li>
 													<li class="has-image">
-														<img src="img/product/product-category-5.png" alt="Product Category Image">
+														<img src="{{ asset('frontend') }}/img/product/product-category-5.png" alt="Product Category Image">
 														<a href="product-grid-left-sidebar.html" title="Tea and coffee">Tea and coffee</a>
 													</li>
 												</ul>
@@ -265,7 +265,7 @@
 													<tr>
 														<td class="product-image">
 															<a href="product-detail-left-sidebar.html">
-																<img src="img/product/7.jpg" alt="Product">
+																<img src="{{ asset('frontend') }}/img/product/7.jpg" alt="Product">
 															</a>
 														</td>
 														<td>
@@ -286,7 +286,7 @@
 													<tr>
 														<td class="product-image">
 															<a href="product-detail-left-sidebar.html">
-																<img src="img/product/6.jpg" alt="Product">
+																<img src="{{ asset('frontend') }}/img/product/6.jpg" alt="Product">
 															</a>
 														</td>
 														<td>
@@ -354,7 +354,7 @@
 								<div class="block text">
 									<div class="block-content">
 										<a href="home-2.html" class="logo-footer">
-											<img src="img/logo-2.png" alt="Logo">
+											<img src="{{ asset('frontend') }}/img/logo-2.png" alt="Logo">
 										</a>
 										
 										<p>
@@ -452,7 +452,7 @@
 				<div class="footer-copyright text-center">
 					<div class="container">
 						<div class="payment">
-							<img src="img/payment.png" alt="Payment">
+							<img src="{{ asset('frontend') }}/img/payment.png" alt="Payment">
 						</div>
 						
 								<div class="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></div>

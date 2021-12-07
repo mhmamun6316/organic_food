@@ -7,15 +7,11 @@
         <div class="container">
             <div class="tiva-slideshow-wrapper">
                 <div id="tiva-slideshow" class="nivoSlider">
-                    <a href="#">
-                        <img class="img-responsive" src="img/slideshow/home2-slideshow-1.jpg" alt="Slideshow Image">
-                    </a>
-                    <a href="#">
-                        <img class="img-responsive" src="img/slideshow/home2-slideshow-2.jpg" alt="Slideshow Image">
-                    </a>
-                    <a href="#">
-                        <img class="img-responsive" src="img/slideshow/home2-slideshow-3.jpg" alt="Slideshow Image">
-                    </a>
+                        @foreach ($sliders as $slider)
+                        <a href="#">
+                            <img class="img-responsive" src="{{ asset($slider->image) }}" alt="Slideshow Image">
+                        </a>
+                        @endforeach
                 </div>
             </div>
         </div>
@@ -23,27 +19,27 @@
     
     
     <!-- Banners -->
-    <div class="section banners">
+    {{-- <div class="section banners">
         <div class="container">
             <div class="row margin-10">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-10">
                     <div class="banner-item effect">
                         <a href="#">
-                            <img class="img-responsive" src="img/banner/home2-banner-1.png" alt="Banner 1">
+                            <img class="img-responsive" src="{{ asset('frontend') }}/img/banner/home2-banner-1.png" alt="Banner 1">
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-10">
                     <div class="banner-item effect">
                         <a href="#">
-                            <img class="img-responsive" src="img/banner/home2-banner-2.png" alt="Banner 2">
+                            <img class="img-responsive" src="{{ asset('frontend') }}/img/banner/home2-banner-2.png" alt="Banner 2">
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 padding-10">
                     <div class="banner-item effect">
                         <a href="#">
-                            <img class="img-responsive" src="img/banner/home2-banner-3.png" alt="Banner 3">
+                            <img class="img-responsive" src="{{ asset('frontend') }}/img/banner/home2-banner-3.png" alt="Banner 3">
                         </a>
                     </div>
                 </div>
@@ -51,7 +47,7 @@
         </div>
     </div>
     
-    
+     --}}
     <!-- 2 Columns -->
     <div class="two-columns">
         <div class="container">
@@ -65,13 +61,15 @@
                         </div>
                         
                         <div class="block-content">
+
+                            @foreach ($categorys as $category)
                             <div class="item">
                                 <span class="arrow collapsed" data-toggle="collapse" data-target="#vegetables" aria-expanded="false" role="button">
                                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                                 </span>
                                 
-                                <a class="category-title" href="product-grid-left-sidebar.html">Vegetables</a>
+                                <a class="category-title" href="product-grid-left-sidebar.html">{{ $category->category_name_en }}</a>
                                 <div class="sub-category collapse" id="vegetables" aria-expanded="true" role="main">
                                     <div class="item">
                                         <a href="product-grid-left-sidebar.html">Tomato</a>
@@ -87,68 +85,8 @@
                                     </div>
                                 </div>
                             </div>
-                            
-                            <div class="item">
-                                <span class="arrow collapsed" data-toggle="collapse" data-target="#fruits" aria-expanded="false" role="button">
-                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                </span>
-                                
-                                <a class="category-title" href="product-grid-left-sidebar.html">Fruits</a>
-                                <div class="sub-category collapse" id="fruits" aria-expanded="true" role="main">
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Orange</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Apple</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Banana</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Strawberry</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="item">
-                                <span class="arrow collapsed" data-toggle="collapse" data-target="#juices" aria-expanded="false" role="button">
-                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                </span>
-                                
-                                <a class="category-title" href="product-grid-left-sidebar.html">Juices</a>
-                                <div class="sub-category collapse" id="juices" aria-expanded="true" role="main">
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Orange Juices</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Tomato Juices</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Apple Juices</a>
-                                    </div>
-                                    <div class="item">
-                                        <a href="product-grid-left-sidebar.html">Peaches Juices</a>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="item">
-                                <a class="category-title" href="product-grid-left-sidebar.html">Tea and Coffee</a>
-                            </div>
-                            
-                            <div class="item">
-                                <a class="category-title" href="product-grid-left-sidebar.html">Jam</a>
-                            </div>
-                            
-                            <div class="item">
-                                <a class="category-title" href="product-grid-left-sidebar.html">SeaFood</a>
-                            </div>
-                            
-                            <div class="item">
-                                <a class="category-title" href="product-grid-left-sidebar.html">Fresh Meats</a>
-                            </div>
+                            @endforeach
+            
                         </div>
                     </div>
                     
@@ -164,7 +102,7 @@
                                 <div class="product-item">
                                     <div class="product-image">
                                         <a href="product-detail-left-sidebar.html">
-                                            <img src="img/product/4.jpg" alt="Product Image">
+                                            <img src="{{ asset('frontend') }}/img/product/4.jpg" alt="Product Image">
                                         </a>
                                     </div>
                                     
@@ -208,7 +146,7 @@
                                 <div class="product-item">
                                     <div class="product-image">
                                         <a href="product-detail-left-sidebar.html">
-                                            <img src="img/product/18.jpg" alt="Product Image">
+                                            <img src="{{ asset('frontend') }}/{{ asset('frontend') }}/img/product/18.jpg" alt="Product Image">
                                         </a>
                                     </div>
                                     
@@ -257,17 +195,17 @@
                     <div class="section payment-intro">
                         <div class="block-content">
                             <div class="item">
-                                <img class="img-responsive" src="img/home2-payment-1.png" alt="Payment Intro">
+                                <img class="img-responsive" src="{{ asset('frontend') }}/img/home2-payment-1.png" alt="Payment Intro">
                                 <h3 class="title">Free Shipping item</h3>
                                 <div class="content">Proin gravida nibh vel velit auctor aliquet aenean</div>
                             </div>
                             <div class="item">
-                                <img class="img-responsive" src="img/home2-payment-2.png" alt="Payment Intro">
+                                <img class="img-responsive" src="{{ asset('frontend') }}/img/home2-payment-2.png" alt="Payment Intro">
                                 <h3 class="title">Secured Payment</h3>
                                 <div class="content">Proin gravida nibh vel velit auctor aliquet aenean</div>
                             </div>
                             <div class="item">
-                                <img class="img-responsive" src="img/home2-payment-3.png" alt="Payment Intro">
+                                <img class="img-responsive" src="{{ asset('frontend') }}/img/home2-payment-3.png" alt="Payment Intro">
                                 <h3 class="title">money back guarantee</h3>
                                 <div class="content">Proin gravida nibh vel velit auctor aliquet aenean</div>
                             </div>
@@ -284,21 +222,21 @@
                         <div class="block-content">
                             <div class="testimonial-wrap owl-theme owl-carousel">
                                 <div class="item">
-                                    <div class="image"><img src="img/testimonial-1.png" alt=""></div>
+                                    <div class="image"><img src="{{ asset('frontend') }}/img/testimonial-1.png" alt=""></div>
                                     <div class="content">“Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis bibendum auctor, nisi elit consequat ipsum.”</div>
                                     <div class="name">WILLIAM JAMES</div>
                                     <div class="job">Hairstyle</div>
                                 </div>
                                 
                                 <div class="item">
-                                    <div class="image"><img src="img/testimonial-2.png" alt=""></div>
+                                    <div class="image"><img src="{{ asset('frontend') }}/img/testimonial-2.png" alt=""></div>
                                     <div class="content">“Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis bibendum auctor, nisi elit consequat ipsum.”</div>
                                     <div class="name">WILLIAM JAMES</div>
                                     <div class="job">Hairstyle</div>
                                 </div>
                                 
                                 <div class="item">
-                                    <div class="image"><img src="img/testimonial-3.png" alt=""></div>
+                                    <div class="image"><img src="{{ asset('frontend') }}/img/testimonial-3.png" alt=""></div>
                                     <div class="content">“Proin gravida nibh vel velit auctor aliquet. Aenean sollicudin, lorem quis bibendum auctor, nisi elit consequat ipsum.”</div>
                                     <div class="name">WILLIAM JAMES</div>
                                     <div class="job">Hairstyle</div>
@@ -347,7 +285,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/4.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/4.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -388,7 +326,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/8.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/8.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -428,7 +366,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/9.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/9.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -469,7 +407,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/10.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/10.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -514,7 +452,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/8.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/8.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -554,7 +492,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/10.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/10.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -594,7 +532,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/4.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/4.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -635,7 +573,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/33.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/33.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -682,7 +620,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/4.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/4.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -723,7 +661,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/8.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/8.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -763,7 +701,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/9.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/9.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -804,7 +742,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/10.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/10.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -874,7 +812,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/4.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/4.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -915,7 +853,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/8.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/8.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -955,7 +893,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/2.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/2.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -1008,7 +946,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/16.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/16.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -1049,7 +987,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/13.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/13.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -1089,7 +1027,7 @@
                                         <div class="product-item">
                                             <div class="product-image">
                                                 <a href="product-detail-left-sidebar.html">
-                                                    <img src="img/product/28.jpg" alt="Product Image">
+                                                    <img src="{{ asset('frontend') }}/img/product/28.jpg" alt="Product Image">
                                                 </a>
                                             </div>
                                             
@@ -1139,14 +1077,14 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 padding-15">
                                 <div class="banner-item effect">
                                     <a href="#">
-                                        <img class="img-responsive" src="img/banner/home2-banner-4.png" alt="Banner">
+                                        <img class="img-responsive" src="{{ asset('frontend') }}/img/banner/home2-banner-4.png" alt="Banner">
                                     </a>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 padding-15">
                                 <div class="banner-item effect">
                                     <a href="#">
-                                        <img class="img-responsive" src="img/banner/home2-banner-5.png" alt="Banner">
+                                        <img class="img-responsive" src="{{ asset('frontend') }}/img/banner/home2-banner-5.png" alt="Banner">
                                     </a>
                                 </div>
                             </div>
@@ -1166,7 +1104,7 @@
                                     <div class="product-item">
                                         <div class="product-image">
                                             <a href="product-detail-left-sidebar.html">
-                                                <img src="img/product/1.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product/1.jpg" alt="Product Image">
                                             </a>
                                         </div>
                                         
@@ -1209,7 +1147,7 @@
                                     <div class="product-item">
                                         <div class="product-image">
                                             <a href="product-detail-left-sidebar.html">
-                                                <img src="img/product/2.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product/2.jpg" alt="Product Image">
                                             </a>
                                         </div>
                                         
@@ -1252,7 +1190,7 @@
                                     <div class="product-item">
                                         <div class="product-image">
                                             <a href="product-detail-left-sidebar.html">
-                                                <img src="img/product/3.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product/3.jpg" alt="Product Image">
                                             </a>
                                         </div>
                                         
@@ -1296,7 +1234,7 @@
                                     <div class="product-item">
                                         <div class="product-image">
                                             <a href="product-detail-left-sidebar.html">
-                                                <img src="img/product/4.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product/4.jpg" alt="Product Image">
                                             </a>
                                         </div>
                                         
@@ -1339,7 +1277,7 @@
                                     <div class="product-item">
                                         <div class="product-image">
                                             <a href="product-detail-left-sidebar.html">
-                                                <img src="img/product/5.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product/5.jpg" alt="Product Image">
                                             </a>
                                         </div>
                                         
@@ -1382,7 +1320,7 @@
                                     <div class="product-item">
                                         <div class="product-image">
                                             <a href="product-detail-left-sidebar.html">
-                                                <img src="img/product/6.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product/6.jpg" alt="Product Image">
                                             </a>
                                         </div>
                                         
@@ -1427,7 +1365,7 @@
                                     <div class="product-item">
                                         <div class="product-image">
                                             <a href="product-detail-left-sidebar.html">
-                                                <img src="img/product/7.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product/7.jpg" alt="Product Image">
                                             </a>
                                         </div>
                                         
@@ -1469,7 +1407,7 @@
                                     <div class="product-item">
                                         <div class="product-image">
                                             <a href="product-detail-left-sidebar.html">
-                                                <img src="img/product/8.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product/8.jpg" alt="Product Image">
                                             </a>
                                         </div>
                                         
@@ -1512,7 +1450,7 @@
                                     <div class="product-item">
                                         <div class="product-image">
                                             <a href="product-detail-left-sidebar.html">
-                                                <img src="img/product/9.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product/9.jpg" alt="Product Image">
                                             </a>
                                         </div>
                                         
@@ -1556,7 +1494,7 @@
                                     <div class="product-item">
                                         <div class="product-image">
                                             <a href="product-detail-left-sidebar.html">
-                                                <img src="img/product/10.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product/10.jpg" alt="Product Image">
                                             </a>
                                         </div>
                                         
@@ -1599,7 +1537,7 @@
                                     <div class="product-item">
                                         <div class="product-image">
                                             <a href="product-detail-left-sidebar.html">
-                                                <img src="img/product/11.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product/11.jpg" alt="Product Image">
                                             </a>
                                         </div>
                                         
@@ -1642,7 +1580,7 @@
                                     <div class="product-item">
                                         <div class="product-image">
                                             <a href="product-detail-left-sidebar.html">
-                                                <img src="img/product/12.jpg" alt="Product Image">
+                                                <img src="{{ asset('frontend') }}/img/product/12.jpg" alt="Product Image">
                                             </a>
                                         </div>
                                         
@@ -1696,7 +1634,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="intro-header">
-                        <img src="img/leaf.png" alt="Partner 1">
+                        <img src="{{ asset('frontend') }}/img/leaf.png" alt="Partner 1">
                         <h3>Why Choose Us</h3>
                     </div>
                 </div>
@@ -1706,13 +1644,13 @@
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <div class="intro-left">
                         <div class="intro-item">
-                            <p><img src="img/intro-icon-1.png" alt="Intro Image"></p>
+                            <p><img src="{{ asset('frontend') }}/img/intro-icon-1.png" alt="Intro Image"></p>
                             <h4>Always Fresh</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
                         
                         <div class="intro-item">
-                            <p><img src="img/intro-icon-2.png" alt="Intro Image"></p>
+                            <p><img src="{{ asset('frontend') }}/img/intro-icon-2.png" alt="Intro Image"></p>
                             <h4>Super Healthy</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
@@ -1722,7 +1660,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     <div class="effect">
                         <a href="#">
-                            <img class="intro-image img-responsive" src="img/intro-2.png" alt="Intro Image">
+                            <img class="intro-image img-responsive" src="{{ asset('frontend') }}/img/intro-2.png" alt="Intro Image">
                         </a>
                     </div>
                 </div>
@@ -1730,13 +1668,13 @@
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <div class="intro-right">
                         <div class="intro-item">
-                            <p><img src="img/intro-icon-3.png" alt="Intro Image"></p>
+                            <p><img src="{{ asset('frontend') }}/img/intro-icon-3.png" alt="Intro Image"></p>
                             <h4>100% Natural</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
                         
                         <div class="intro-item">
-                            <p><img src="img/intro-icon-4.png" alt="Intro Image"></p>
+                            <p><img src="{{ asset('frontend') }}/img/intro-icon-4.png" alt="Intro Image"></p>
                             <h4>Premium Quality</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                         </div>
