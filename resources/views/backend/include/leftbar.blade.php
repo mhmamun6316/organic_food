@@ -41,6 +41,9 @@
         <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Apps &amp; Pages</span><i data-feather="more-horizontal"></i>
         </li>
 
+        <li class=" nav-item"><a  href="{{ route('all.brand') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Brand</span></a>
+        </li>
+
         <li class=" nav-item"><a  href="{{ route('all.category') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Category</span></a>
         </li>
 
@@ -48,6 +51,9 @@
         </li>
 
         <li class=" nav-item"><a  href="{{ route('all.sliders') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Sliders</span></a>
+        </li>
+
+        <li class=" nav-item"><a  href="{{ route('all.coupon') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Coupons</span></a>
         </li>
 
         {{-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Invoice</span></a>
