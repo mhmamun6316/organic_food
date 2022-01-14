@@ -55,7 +55,22 @@
 
         <li class=" nav-item"><a  href="{{ route('all.coupon') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Coupons</span></a>
         </li>
-
+        {{-- <ul>
+        <li class=" nav-item"><a  href="{{ route('add.product') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Product</span></a>   </li>
+        <li class=" nav-item"><a  href="{{ route('view.product') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Product</span></a>   </li>
+        </ul> --}}
+        <li>
+          <a href="javascript: void(0);" class="has-arrow waves-effect">
+              <i class="ti-email"></i>
+              <span>Product</span>
+          </a>
+          <ul class="sub-menu" aria-expanded="false">
+              <li class=" nav-item"><a href="{{ route('add.product') }}"  class="d-flex align-items-center"><i data-feather="mail"></i>Add Product</a></li>
+          </ul>
+          <ul class="sub-menu" aria-expanded="false">
+              <li class=" nav-item"><a href="{{ route('view.product') }}"  class="d-flex align-items-center"><i data-feather="mail"></i>View Product</a></li>
+          </ul>
+      </li>
         {{-- <li class=" nav-item"><a class="d-flex align-items-center" href="#"><i data-feather="file-text"></i><span class="menu-title text-truncate" data-i18n="Invoice">Invoice</span></a>
           <ul class="menu-content">
             <li><a class="d-flex align-items-center" href="app-invoice-list.html"><i data-feather="circle"></i><span class="menu-item text-truncate" data-i18n="List">List</span></a>

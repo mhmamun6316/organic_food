@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\Brancontroller;
 use App\Http\Controllers\Admin\Couponcontroller;
 use App\Http\Controllers\Frontend\IndexController;
+use App\Http\Controllers\Admin\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,3 +80,19 @@ Route::prefix('coupon/')->group(function(){
     Route::post('update',[Couponcontroller::class,'CouponUpdate'])->name('update.coupon');
     Route::get('delete/{id}',[Couponcontroller::class,'CouponDelete'])->name('delete.coupon');
 });
+
+// routes for product
+Route::prefix('product/')->group(function(){
+    Route::get('view',[ProductController::class,'ProductView'])->name('view.product');
+    Route::get('add',[ProductController::class,'ProductAdd'])->name('add.product');
+    Route::post('store',[ProductController::class,'ProductStore'])->name('store-product');
+    Route::get('edit/{product_id}',[ProductController::class,'ProductEdit'])->name('edit.product');
+    Route::post('update',[ProductController::class,'ProductUpdate'])->name('update.product');
+    Route::get('delete/{product_id}',[ProductController::class,'ProductDelete'])->name('delete.product');
+    Route::post('thambnail/update',[ProductController::class,'thambnailUpdate'])->name('update-product-thambnail');
+    Route::post('multi-image/update',[ProductController::class,'multiImagUpdate'])->name('update-product-image');
+    Route::get('multiimg/delete/{id}',[ProductController::class,'multiImageDelete']);
+    Route::get('product-inactive/{id}',[ProductController::class,'inactive'])->name('product.deactive');
+    Route::get('product-active/{id}',[ProductController::class,'active'])->name('product.active');
+});
+
