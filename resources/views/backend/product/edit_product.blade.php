@@ -4,7 +4,7 @@
       color: #6E6B7B;
       background-color: #283045 !important;
   }
-  button, input, optgroup, select, textarea {
+  input, optgroup, select, textarea {
       margin: 0;
       padding: 0;
       font-family: inherit;
@@ -29,7 +29,7 @@
   }
   </style>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.css" rel="stylesheet">
-  
+
 @section('admin_content')
 
    <!-- ########## START: MAIN PANEL ########## -->
@@ -381,8 +381,8 @@
               </div>
           </div>  --}}
 </div>
-    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script> 
-    
+    <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+
     <script>
     CKEDITOR.replace( 'short_descp_en' );
 

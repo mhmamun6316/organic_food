@@ -4,7 +4,7 @@
     color: #6E6B7B;
     background-color: #283045 !important;
 }
-button, input, optgroup, select, textarea {
+input, optgroup, select, textarea {
     margin: 0;
     padding: 0;
     font-family: inherit;
@@ -49,27 +49,27 @@ button, input, optgroup, select, textarea {
                         <label class="form-control-label">Select Brand: <span class="tx-danger">*</span></label>
                         <select class="form-control select2-show-search" data-placeholder="Select One" name="brand_id">
                           <option label="Choose one"></option>
+                          <option value="" selected="" disabled="">Select Brand</option>
                          @foreach ($brands as $brand)
-                         <option value="" selected="" disabled="">Select Brand</option>
                            <option value="{{ $brand->id }}">{{ ucwords($brand->brand_name_en) }}</option> --}}
-                           @endforeach 
+                           @endforeach
                         </select>
                         @error('brand_id')
-                        <strong class="text-danger">{{ $message }}</strong>	
+                        <strong class="text-danger">{{ $message }}</strong>
                          @enderror
                       </div>
 
                 </div>
-                 
+
                 <div class="col-md-4">
                     <div class="form-group">
                         <label class="form-control-label">Select Category: <span class="tx-danger">*</span></label>
                         <select class="form-control select2-show-search" data-placeholder="Select One" name="category_id">
                           <option label="Choose one"></option>
-                           @foreach ($categories as $cat) 
-                           <option value="" selected="" disabled="">Select Category</option>
+                          <option value="" selected="" disabled="">Select Category</option>
+                           @foreach ($categories as $cat)
                            <option value="{{ $cat->id }}">{{ ucwords($cat->category_name_en) }}</option> --}}
-                           @endforeach 
+                           @endforeach
                         </select>
                         @error('category_id')
                             <span class="text-danger">{{ $message }}</span>
@@ -82,8 +82,8 @@ button, input, optgroup, select, textarea {
                         <label class="form-control-label">Select Sub-Category: <span class="tx-danger">*</span></label>
                         <select class="form-control select2-show-search" data-placeholder="Select One" name="subcategory_id">
                           <option label="Choose one"></option>
-                          @foreach ($subcats as $subcat)
                           <option value="" selected="" disabled="">Select SubCategory</option>
+                          @foreach ($subcats as $subcat)
                           <option value="{{ $subcat->id }}">{{ ucwords($subcat->subcategory_name_en) }}</option>
                           @endforeach
                         </select>
@@ -92,21 +92,6 @@ button, input, optgroup, select, textarea {
                         @enderror
                       </div>
                 </div>
-
-                {{-- <div class="col-md-4">
-                    <div class="form-group">
-                        <label class="form-control-label">Select Sub-SubCategory: <span class="tx-danger">*</span></label>
-                        <select class="form-control select2-show-search" data-placeholder="Select One" name="subsubcategory_id">
-                          {{-- <option label="Choose one"></option>
-                          @foreach ($categories as $cat)
-                          <option value="{{ $cat->id }}">{{ ucwords($cat->category_name_en) }}</option>
-                          @endforeach --}}
-                        {{-- </select>
-                        @error('subsubcategory_id')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                      </div>
-                </div> --}} 
 
               <div class="col-md-4">
                 <div class="form-group">
@@ -131,7 +116,7 @@ button, input, optgroup, select, textarea {
               <div class="col-md-4">
                 <div class="form-group">
                     <label class="form-control-label">Product Code: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="text" name="product_code" value="{{ old('product_code') }}" placeholder="Enter Product Code">
+                    <input class="form-control" type="text" name="product_code" placeholder="Enter Product Code">
                     @error('product_code')
                     <span class="text-danger">{{ $message }}</span>
                   @enderror
@@ -324,23 +309,23 @@ button, input, optgroup, select, textarea {
         </div><!-- row -->
 
 </div>
-   <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script> 
-  
+   <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+
     <script>
      CKEDITOR.replace( 'short_descp_en' );
-    
+
 </script>
 <script>
   CKEDITOR.replace( 'short_descp_bn' );
- 
+
 </script>
 <script>
   CKEDITOR.replace( 'long_descp_en' );
- 
+
 </script>
 <script>
   CKEDITOR.replace( 'long_descp_bn' );
- 
+
 </script>
 <script
         src="https://code.jquery.com/jquery-3.6.0.min.js"
