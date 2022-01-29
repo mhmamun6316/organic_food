@@ -1,5 +1,6 @@
 @extends('layouts.admin_dashboard')
 
+
 @section('admin_content')
 
 <section id="responsive-datatable">
@@ -33,10 +34,10 @@
                         <td>
                             <img src="{{ asset($brand->brand_image) }}" alt="" width="80px">
                         </td>
-                        <td>
-                            <button type="button" class="btn btn-relief-warning"><a href="{{ route('edit.brand',$brand->id) }}">Edit</a></button>
-                            <button type="button" class="btn btn-relief-danger"><a href="{{ route('delete.brand',$brand->id) }}">
-                              Delete</a> </button>
+                        <td style="display: flex">
+                          {{-- <button class="btn"><i class="fa fa-trash"></i></button> --}}
+                            <button type="button" class="btn btn-relief-warning"><a href="{{ route('edit.brand',$brand->id) }}"><i class="fa fa-edit"></i></a></button>   
+                            <button type="button" class="btn btn-relief-danger ml-7"><a href="{{ route('delete.brand',$brand->id) }}"><i class="fa fa-trash"></i></a> </button>
                         </td>
                     </tr>
                     @endforeach
