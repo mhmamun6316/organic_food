@@ -34,9 +34,9 @@
                         <td>{{ $slider->title_en }}</td>
                         <td>{{ $slider->title_bn }}</td>
                         <td>
-                            <button type="button" class="btn btn-relief-warning mb-1"><a href="{{ route('edit.slider',$slider->id) }}">Edit</a></button>
+                            <button type="button" class="btn btn-relief-warning mb-1"><a href="{{ route('edit.slider',$slider->id) }}"><i class="fa fa-edit"></i></a></button>
                             <button type="button" class="btn btn-relief-danger"><a href="{{ route('delete.slider',$slider->id) }}">
-                              Delete</a> </button>
+                              <i class="fa fa-trash"></i></a> </button>
                         </td>
                     </tr>
                     @endforeach

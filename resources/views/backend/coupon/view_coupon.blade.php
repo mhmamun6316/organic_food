@@ -30,9 +30,9 @@
                         <td>{{ $Coupon->coupon_name }}</td>
                         <td>{{ $Coupon->coupon_discount }}</td>
                         <td>
-                            <button type="button" class="btn btn-relief-warning"><a href="{{ route('edit.coupon',$Coupon->id) }}">Edit</a></button>
+                            <button type="button" class="btn btn-relief-warning"><a href="{{ route('edit.coupon',$Coupon->id) }}"><i class="fa fa-edit"></i></a></button>
                             <button type="button" class="btn btn-relief-danger"><a href="{{ route('delete.coupon',$Coupon->id) }}">
-                              Delete</a> </button>
+                              <i class="fa fa-trash"></i></a> </button>
                         </td>
                     </tr>
                     @endforeach
