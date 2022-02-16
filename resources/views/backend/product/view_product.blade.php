@@ -18,6 +18,7 @@
                   <table id="datatable1" class="table display responsive nowrap">
                     <thead>
                       <tr>
+                        <th>SL</th>
                         <th class="wd-20p">Image</th>
                         <th class="wd-20p">Product Name English</th>
                         <th class="wd-20p">Product Price</th>
@@ -28,8 +29,12 @@
                       </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $sl=1;
+                        @endphp
                       @foreach ($products as $item)
                       <tr>
+                          <td>{{ $sl++ }}</td>
                         <td>
                             <img src="{{ asset($item->product_thambnail) }}" alt="" style="height: 60px; width:60px;">
                         </td>
@@ -55,7 +60,7 @@
                          @endif
                         </td>
                         <td>
-                       
+
                             <a href="{{ route('edit.product', $item->id) }}"
                                 class="btn btn-success">Edit</a>
 
@@ -65,7 +70,7 @@
                                 <a href="{{ route('product.deactive',$item->id) }}" class="btn btn-danger" title="Product Deactive Now">DeActive </a>
                              @else
                              <a href="{{ route('product.active',$item->id) }}" class="btn btn-success" title="Product Active Now">Active</a>
-                             @endif 
+                             @endif
                         </td>
                       </tr>
                       @endforeach
