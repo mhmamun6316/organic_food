@@ -14,7 +14,7 @@ aria-hidden="true">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card" style="width:16rem;">
-                            <img src="" class="card-img-top" id="pimage" alt="" style="height: 200px;">
+                            <img src="" class="card-img-top" id="pimage" alt="" style="height: 175px;">
                         </div>
                     </div>
                     <div class="col-md-4">

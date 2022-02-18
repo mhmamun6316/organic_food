@@ -107,14 +107,15 @@ Route::get('product/details/{id}', [IndexController::class, 'ProductDetails'])->
 
 
 // code for frontend cart
-Route::get('product/view/modal/{id}',[IndexController::class,'productViewAjax']);
+Route::get('product/view/modal/{id}', [IndexController::class, 'productViewAjax']);
 // add to cart
-Route::post('cart/data/store/{id}',[CartController::class,'addToCart']);
+Route::post('cart/data/store/{id}', [CartController::class, 'addToCart']);
 //mini cart
-Route::get('product/mini/cart',[CartController::class,'miniCart']);
-Route::get('/minicart/product-remove/{rowId}',[CartController::class,'miniCartRemove']);
+Route::get('product/mini/cart', [CartController::class, 'miniCart']);
+Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'miniCartRemove']);
 
 // wishlist routes
-Route::post('addTo/wishlist/{product_id}',[CartController::class,'addToWishlist']);
-Route::get('view/wishlist',[WishlistController::class,'ViewWishlist'])->name('view.wishlist');
-
+Route::post('addTo/wishlist/{product_id}', [CartController::class, 'addToWishlist']);
+Route::get('view/wishlist', [WishlistController::class, 'ViewWishlist'])->name('view.wishlist');
+Route::get('get/wishlist/product', [WishlistController::class, 'GetWishlist']);
+Route::get('/wishlist/remove/{id}', [WishlistController::class, 'DestoryWishlist']);

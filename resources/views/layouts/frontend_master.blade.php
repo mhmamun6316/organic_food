@@ -36,6 +36,11 @@
 		<link rel="stylesheet" href="{{ asset('frontend') }}/css/style.css">
 		<link rel="stylesheet" href="{{ asset('frontend') }}/css/reponsive.css">
         @yield('css')
+        <style>
+            .modal{
+                z-index: 9999;
+            }
+        </style>
 	</head>
 
 	<body class="home home-2">
@@ -635,6 +640,82 @@
                             //  end message
                         }
                     })
+                }
+
+                function wishlist() {
+                    $.ajax({
+                        type: 'GET',
+                        url: "/get/wishlist/product",
+                        dataType: 'json',
+                        success: function(response) {
+                            var rows = ""
+                            $.each(response, function(key, value) {
+                                rows += `<tr>
+                                        <td class="product-remove">
+                                            <a title="Remove this item" class="remove" href="#" id="${value.id}" onclick="wishlistRemove(this.id)">
+                                                <i class="fa fa-times"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#">
+                                                <img width="80" alt="Product Image" class="img-responsive" src="/${value.product.product_thambnail}">
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="product-name">${value.product.product_name_en}</a>
+                                        </td>
+                                        <td class="text-center">
+                                             ${value.product.discount_price == null
+                                                ? `$${value.product.selling_price}`
+                                                :
+                                                `$${value.product.discount_price} <del>$${value.product.selling_price}</del>`
+                                            }
+                                        </td>
+                                        <td class="text-center">
+                                            <a class="add-to-cart" href="#" data-toggle="modal" data-target="#cartModal" id="${value.product_id}"
+                                                onclick="productView(this.id)">
+                                                <i class="fa fa-shopping-basket" aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>`
+                            });
+
+                            $('#wishlist').html(rows);
+                        }
+                    })
+                }
+
+                wishlist();
+
+                function wishlistRemove(id) {
+                    $.ajax({
+                        type: 'GET',
+                        url: "/wishlist/remove/" + id,
+                        dataType: 'json',
+                        success: function(data) {
+                            wishlist();
+                            //  start message
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000
+                            })
+
+                            if ($.isEmptyObject(data.error)) {
+                                Toast.fire({
+                                    type: 'success',
+                                    title: data.success
+                                })
+                            } else {
+                                Toast.fire({
+                                    type: 'error',
+                                    title: data.error
+                                })
+                            }
+                            //  end message
+                        }
+                    });
                 }
 
         </script>
