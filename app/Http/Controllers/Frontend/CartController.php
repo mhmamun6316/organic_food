@@ -96,5 +96,49 @@ class CartController extends Controller
         }
    }
 
+   public function ViewCartProduct(){
+       return view('frontend.view_cart');
+   }
+
+   public function GetCartProduct(){
+        $carts = Cart::content();
+        $cartQty = Cart::count();
+        $cartTotal = Cart::total();
+
+        return response()->json(array(
+            'carts' => $carts,
+            'cartQty' => $cartQty,
+            'cartTotal' => round($cartTotal),
+        ));
+   }
+
+    //cart remove product
+    public function destory($id){
+        Cart::remove($id);
+        // if (Session::has('coupon')) {
+        //     Session::forget('coupon');
+        // }
+        return response()->json(['success' => 'Product Remove From Cart']);
+    }
+
+    //cart increment
+    public function cartIncrement($rowId){
+
+        $row = Cart::get($rowId);
+        Cart::update($rowId, $row->qty + 1);
+        return response()->json(['success' => 'product incremented successfully']);
+    }
+
+    //cart decrement
+    public function cartDecrement($rowId){
+
+        $row = Cart::get($rowId);
+        if ($row->qty == 1) {
+            return response()->json(['success' => 'not decremented']);
+        }else {
+            Cart::update($rowId, $row->qty - 1);
+            return response()->json(['success' => 'product decremented successfully']);
+        }
+    }
 
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ShippingAreaController;
 use App\Models\Admin\Product;
 
 /*
@@ -103,6 +104,29 @@ Route::prefix('product/')->group(function () {
     Route::get('product-active/{id}', [ProductController::class, 'active'])->name('product.active');
 });
 
+
+//shipping area
+//division
+Route::get('division',[ShippingAreaController::class,'createDivision'])->name('division');
+Route::post('division/store',[ShippingAreaController::class,'divisionStore'])->name('division-store');
+Route::get('division-edit/{id}',[ShippingAreaController::class,'divisionEdit']);
+Route::post('division/update',[ShippingAreaController::class,'divisionUpdate'])->name('division-update');
+Route::get('division-delete/{id}',[ShippingAreaController::class,'divisionDestroy']);
+//district
+Route::get('district',[ShippingAreaController::class,'districtCreate'])->name('district');
+Route::post('district/store',[ShippingAreaController::class,'districtStore'])->name('district-store');
+Route::get('district-edit/{id}',[ShippingAreaController::class,'districtEdit']);
+Route::post('district/update',[ShippingAreaController::class,'districtUpdate'])->name('district-update');
+Route::get('district-delete/{id}',[ShippingAreaController::class,'districtDestroy']);
+//state
+Route::get('state',[ShippingAreaController::class,'stateCreate'])->name('state');
+Route::get('district-get/ajax/{division_id}',[ShippingAreaController::class,'getDistrictAjax']);
+Route::post('state/store',[ShippingAreaController::class,'stateStore'])->name('state-store');
+Route::get('state-edit/{id}',[ShippingAreaController::class,'stateEdit']);
+Route::post('state/update',[ShippingAreaController::class,'stateUpdate'])->name('state-update');
+Route::get('state-delete/{id}',[ShippingAreaController::class,'stateDestroy']);
+
+
 Route::get('product/details/{id}', [IndexController::class, 'ProductDetails'])->name('product.details');
 
 
@@ -119,3 +143,10 @@ Route::post('addTo/wishlist/{product_id}', [CartController::class, 'addToWishlis
 Route::get('view/wishlist', [WishlistController::class, 'ViewWishlist'])->name('view.wishlist');
 Route::get('get/wishlist/product', [WishlistController::class, 'GetWishlist']);
 Route::get('/wishlist/remove/{id}', [WishlistController::class, 'DestoryWishlist']);
+
+// cart page routes
+Route::get('view/cart/product',[CartController::class,'ViewCartProduct'])->name('view.cart');
+Route::get('get/cart/product',[CartController::class,'GetCartProduct']);
+Route::get('cart/remove/{id}',[CartController::class,'destory']);
+Route::get('/cart/increment/{id}',[CartController::class,'cartIncrement']);
+Route::get('/cart/decrement/{id}',[CartController::class,'cartDecrement']);

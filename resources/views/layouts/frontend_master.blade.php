@@ -5,7 +5,7 @@
 		<!-- Basic Page Needs -->
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>FreshMart - Organic, Fresh Food, Farm Store HTML Template</title>
+		<title>Organic E-Commerce</title>
 
 		<meta name="keywords" content="Organic, Fresh Food, Farm Store">
 		<meta name="description" content="FreshMart - Organic, Fresh Food, Farm Store HTML Template">
@@ -238,7 +238,7 @@
 													<tr>
 														<td colspan="3">
 															<div class="cart-button">
-																<a class="btn btn-primary" href="product-cart.html" title="View Cart">View Cart</a>
+																<a class="btn btn-primary" href="{{ route('view.cart') }}" title="View Cart">View Cart</a>
 																<a class="btn btn-primary" href="product-checkout.html" title="Checkout">Checkout</a>
 															</div>
 														</td>
@@ -573,7 +573,6 @@
                         }
                     })
                 }
-
                 miniCart();
 
                  /// mini cart remove start
@@ -684,7 +683,6 @@
                         }
                     })
                 }
-
                 wishlist();
 
                 function wishlistRemove(id) {
@@ -696,6 +694,172 @@
                             wishlist();
                             //  start message
                             const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000
+                            })
+
+                            if ($.isEmptyObject(data.error)) {
+                                Toast.fire({
+                                    type: 'success',
+                                    title: data.success
+                                })
+                            } else {
+                                Toast.fire({
+                                    type: 'error',
+                                    title: data.error
+                                })
+                            }
+                            //  end message
+                        }
+                    });
+                }
+
+                function cart() {
+                    $.ajax({
+                        type: 'GET',
+                        url: "/get/cart/product",
+                        dataType: 'json',
+                        success: function(response) {
+                            var rows = ""
+                            $.each(response.carts, function(key, value) {
+                                rows += ` <tr>
+                                    <td class="product-remove">
+                                        <a title="Remove this item" class="remove" href="#" id="${value.rowId}" onclick="CartRemove(this.id)">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="#">
+                                            <img width="80" alt="Product Image" class="img-responsive" src="/${value.options.image}">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="product-name">${value.name} $${value.price}</a>
+                                    </td>
+                                    <td class="text-center">
+                                        ${value.options.color}
+                                    </td>
+                                    <td class="text-center">
+                                        ${value.options.size}
+                                    </td>
+                                    <td>
+                                        <div class="product-quantity">
+                                            <div class="qty">
+                                                <div class="input-group">
+                                                    <input type="text" name="qty" value="${value.qty}" data-min="1">
+                                                    <span class="adjust-qty">
+                                                        <span class="adjust-btn plus" id="${value.rowId}" onclick="cartIncrement(this.id)">+</span>
+                                                        <span class="adjust-btn minus" id="${value.rowId}" onclick="cartDecrement(this.id)">-</span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">
+                                        $${value.subtotal}
+                                    </td>
+                                </tr>`
+                            });
+                            rows += `<tr class="cart-total">
+                                    <td rowspan="3" colspan="4"></td>
+                                    <td colspan="2" class="text-right">Total products</td>
+                                    <td colspan="1" class="text-center">${response.cartQty}</td>
+                                </tr>
+                                <tr class="cart-total">
+                                    <td colspan="2" class="text-right">Total shipping</td>
+                                    <td colspan="1" class="text-center">$10</td>
+                                </tr>
+                                <tr class="cart-total">
+                                    <td colspan="2" class="total text-right">Total</td>
+                                    <td colspan="1" class="total text-center">$${response.cartTotal}</td>
+                                </tr>`
+                            $('#cartPage').html(rows);
+                        }
+                    })
+                }
+                cart();
+
+                function CartRemove(id) {
+                    $.ajax({
+                        type: 'GET',
+                        url: "/cart/remove/" + id,
+                        dataType: 'json',
+                        success: function(data) {
+                            cart();
+                            miniCart();
+                            // couponCalculation();
+                            // $('#couponField').show();
+                            // $('#coupon_name').val('');
+                            //  start message
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000
+                            })
+
+                            if ($.isEmptyObject(data.error)) {
+                                Toast.fire({
+                                    type: 'success',
+                                    title: data.success
+                                })
+                            } else {
+                                Toast.fire({
+                                    type: 'error',
+                                    title: data.error
+                                })
+                            }
+                            //  end message
+                        }
+                    });
+                }
+
+                function cartIncrement(rowId) {
+                    $.ajax({
+                        type: 'GET',
+                        url: "/cart/increment/" + rowId,
+                        dataType: 'json',
+                        success: function(data) {
+                            // couponCalculation();
+                            cart();
+                            miniCart();
+                            //  start message
+                            const Toast = Swal.mixin({
+                                toast: true,
+                                position: 'top-end',
+                                showConfirmButton: false,
+                                timer: 3000
+                            })
+
+                            if ($.isEmptyObject(data.error)) {
+                                Toast.fire({
+                                    type: 'success',
+                                    title: data.success
+                                })
+                            } else {
+                                Toast.fire({
+                                    type: 'error',
+                                    title: data.error
+                                })
+                            }
+                            //  end message
+                        }
+                    });
+                }
+
+                function cartDecrement(rowId) {
+                    $.ajax({
+                        type: 'GET',
+                        url: "/cart/decrement/" + rowId,
+                        dataType: 'json',
+                        success: function(data) {
+                            // couponCalculation();
+                            cart();
+                            miniCart();
+                             //  start message
+                             const Toast = Swal.mixin({
                                 toast: true,
                                 position: 'top-end',
                                 showConfirmButton: false,
