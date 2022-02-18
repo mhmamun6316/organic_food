@@ -12,6 +12,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ShippingAreaController;
+use App\Http\Controllers\CheckoutController;
 use App\Models\Admin\Product;
 
 /*
@@ -127,6 +128,8 @@ Route::post('state/update',[ShippingAreaController::class,'stateUpdate'])->name(
 Route::get('state-delete/{id}',[ShippingAreaController::class,'stateDestroy']);
 
 
+
+
 Route::get('product/details/{id}', [IndexController::class, 'ProductDetails'])->name('product.details');
 
 
@@ -150,3 +153,13 @@ Route::get('get/cart/product',[CartController::class,'GetCartProduct']);
 Route::get('cart/remove/{id}',[CartController::class,'destory']);
 Route::get('/cart/increment/{id}',[CartController::class,'cartIncrement']);
 Route::get('/cart/decrement/{id}',[CartController::class,'cartDecrement']);
+
+//checkout
+Route::get('user/checkout',[CartController::class,'checkoutCreate'])->name('checkout');
+Route::get('district-get/ajax/{division_id}',[CheckoutController::class,'getDistrictWithAjax']);
+Route::get('state-get/ajax/{district_id}',[CheckoutController::class,'getStateWithAjax']);
+Route::post('/order/confirm',[CheckoutController::class,'ConfirmOrder'])->name('checkout.store');
+
+
+// user profile
+Route::get('user/profile/view',[CheckoutController::class,'UserProfile'])->name('user.profile');

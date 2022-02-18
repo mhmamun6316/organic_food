@@ -25,7 +25,7 @@
         </div>
 
         <div class="checkout-btn">
-            <a href="#" class="btn btn-primary pull-right" title="Proceed to checkout">
+            <a href="{{ route('checkout') }}" class="btn btn-primary pull-right" title="Proceed to checkout">
                 <span>Proceed to checkout</span>
                 <i class="fa fa-angle-right ml-xs"></i>
             </a>

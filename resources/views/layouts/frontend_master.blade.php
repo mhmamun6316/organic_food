@@ -74,7 +74,7 @@
 										<div class="dropdown-menu">
                                             @auth
                                                 <div class="item">
-                                                    <a href="#" title="Log in to your customer account"><i class="fa fa-cog"></i>My Account</a>
+                                                    <a href="{{ route('user.profile') }}" title="Log in to your customer account"><i class="fa fa-cog"></i>My Profile</a>
                                                 </div>
                                                 <div class="item d-flex">
                                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
@@ -151,7 +151,7 @@
 							<div class="col-lg-2 col-md-2 col-sm-12 padding-0">
 								<!-- Logo -->
 								<div class="logo">
-									<a href="home-2.html">
+									<a href="{{ url('/') }}">
 										<img class="img-responsive" src="{{ asset('frontend') }}/img/logo.png" alt="Logo">
 									</a>
 								</div>
@@ -239,7 +239,7 @@
 														<td colspan="3">
 															<div class="cart-button">
 																<a class="btn btn-primary" href="{{ route('view.cart') }}" title="View Cart">View Cart</a>
-																<a class="btn btn-primary" href="product-checkout.html" title="Checkout">Checkout</a>
+																<a class="btn btn-primary" href="{{ route('checkout') }}" title="Checkout">Checkout</a>
 															</div>
 														</td>
 													</tr>
@@ -427,6 +427,32 @@
 
 		<!-- Template CSS -->
 		<script src="{{ asset('frontend') }}/js/main.js"></script>
+
+        <script type="text/javascript" src="{{ asset('frontend') }}/libs/toastr/toastr.min.js"></script>
+
+        <script>
+            @if (Session::has('message'))
+                var type ="{{ Session::get('alert-type', 'info') }}"
+                switch(type){
+                case 'info':
+                toastr.info(" {{ Session::get('message') }} ");
+                break;
+
+                case 'success':
+                toastr.success(" {{ Session::get('message') }} ");
+                break;
+
+                case 'warning':
+                toastr.warning(" {{ Session::get('message') }} ");
+                break;
+
+                case 'error':
+                toastr.error(" {{ Session::get('message') }} ");
+                break;
+                }
+            @endif
+
+        </script>
 
         <script>
 

@@ -7,10 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Product;
 use App\Models\Wishlist;
 
+use App\Models\ShipDistrict;
+use App\Models\ShipDivision;
+use App\Models\ShipState;
+use Carbon\Carbon;
+
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Carbon\Carbon;
 
 class CartController extends Controller
 {
@@ -140,5 +144,31 @@ class CartController extends Controller
             return response()->json(['success' => 'product decremented successfully']);
         }
     }
+
+    //checkout
+    public function checkoutCreate(){
+        if (Auth::check()) {
+            if (Cart::total() > 0) {
+                $carts = Cart::content();
+                $cartQty = Cart::count();
+                $cartTotal = Cart::total();
+                $divisions = ShipDivision::orderBy('division_name','ASC')->get();
+                return view('frontend.checkout',compact('carts','cartQty','cartTotal','divisions'));
+            }else {
+            $notification=array(
+                'message'=>'Shopping Now',
+                'alert-type'=>'error'
+            );
+            return Redirect()->to('/')->with($notification);
+            }
+        }else {
+            $notification=array(
+                'message'=>'You Nedd to Login First',
+                'alert-type'=>'error'
+            );
+            return Redirect()->route('login')->with($notification);
+    }
+}
+
 
 }

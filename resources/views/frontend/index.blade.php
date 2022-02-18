@@ -95,7 +95,8 @@
                                         </a>
 
                                         <a class="add-wishlist" href="#">
-                                            <i class="fa fa-heart" aria-hidden="true"></i>
+                                            <i class="fa fa-heart" aria-hidden="true" id="{{ $hot_deal->id }}"
+                                                onclick="addToWishlist(this.id)"></i>
                                         </a>
 
                                         <a class="quickview" href="#">
@@ -198,7 +199,8 @@
                                                 </a>
 
                                                 <a class="add-wishlist" href="#">
-                                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                                    <i class="fa fa-heart" aria-hidden="true" id="{{ $product->id }}"
+                                                        onclick="addToWishlist(this.id)"></i>
                                                 </a>
 
                                                 <a class="quickview" href="#">
@@ -250,7 +252,8 @@
                                                     </a>
 
                                                     <a class="add-wishlist" href="#">
-                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                        <i class="fa fa-heart" aria-hidden="true" id="{{ $product->id }}"
+                                                            onclick="addToWishlist(this.id)"></i>
                                                     </a>
 
                                                     <a class="quickview" href="#">
@@ -327,7 +330,8 @@
                                                     </a>
 
                                                     <a class="add-wishlist" href="#">
-                                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                                        <i class="fa fa-heart" aria-hidden="true" id="{{ $fruit->id }}"
+                                                            onclick="addToWishlist(this.id)"></i>
                                                     </a>
 
                                                     <a class="quickview" href="#">
@@ -388,7 +392,8 @@
                                                 </a>
 
                                                 <a class="add-wishlist" href="#">
-                                                    <i class="fa fa-heart" aria-hidden="true"></i>
+                                                    <i class="fa fa-heart" aria-hidden="true" id="{{ $honey->id }}"
+                                                        onclick="addToWishlist(this.id)"></i>
                                                 </a>
 
                                                 <a class="quickview" href="#">
