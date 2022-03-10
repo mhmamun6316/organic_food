@@ -434,7 +434,6 @@
         </script>
 
         <script>
-
                 //start product view
                 function productView(id) {
                     $.ajax({

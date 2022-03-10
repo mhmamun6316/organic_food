@@ -159,7 +159,10 @@ Route::post('/order/confirm', [CheckoutController::class, 'ConfirmOrder'])->name
 // user profile
 
 Route::get('user/profile/view', [CheckoutController::class, 'UserProfile'])->name('user.profile');
+<<<<<<< HEAD
 Route::get('user/profile/order/items/{id}', [CheckoutController::class, 'UserProfileItems'])->name('user.profile.order.items');
+=======
+>>>>>>> 3c78bb8ed5e6d40789dbe911cf95803394595289
 Route::get('subcatgory/wise/product/{id}', [CheckoutController::class, 'SubcategoryProduct'])->name('subcategory.product');
 Route::get('category/wise/product/{id}', [CheckoutController::class, 'CategoryProduct'])->name('category.product');
 
