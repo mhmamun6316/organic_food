@@ -50,7 +50,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('backend') }}/assets/css/style.css">
     <!-- END: Custom CSS-->
 
-    <link rel="stylesheet" href="//cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
+    <link rel="stylesheet" href="//cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
+    @yield('css')
 
   </head>
   <!-- END: Head-->
@@ -77,7 +79,7 @@
         <div class="content-body"><!-- Dashboard Ecommerce Starts -->
 
           @yield('admin_content')
-             
+
         </div>  <!-- Dashboard Ecommerce ends -->
       </div>
     </div>
@@ -95,6 +97,8 @@
     <footer class="footer footer-static footer-light">
       <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT  &copy; 2021<a class="ms-25" href="https://1.envato.market/pixinvent_portfolio" target="_blank">Pixinvent</a><span class="d-none d-sm-inline-block">, All rights Reserved</span></span><span class="float-md-end d-none d-md-block">Hand-crafted & Made with<i data-feather="heart"></i></span></p>
     </footer>
+
+    @yield('script')
 
     <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
     <!-- END: Footer-->
@@ -123,7 +127,7 @@
     <script src="{{ asset('backend') }}/app-assets/js/scripts/pages/dashboard-ecommerce.min.js"></script>
     <!-- END: Page JS-->
 
- 
+
      <!-- BEGIN: Page Vendor JS-->
      <script src="{{ asset('backend') }}/app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
      <script src="{{ asset('backend') }}/app-assets/vendors/js/tables/datatable/dataTables.bootstrap5.min.js"></script>
@@ -131,10 +135,12 @@
      <script src="{{ asset('backend') }}/app-assets/vendors/js/tables/datatable/responsive.bootstrap5.js"></script>
      <script src="{{ asset('backend') }}/app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
      <!-- END: Page Vendor JS-->
- 
+
      <!-- BEGIN: Page JS-->
      <script src="{{ asset('backend') }}/app-assets/js/scripts/tables/table-datatables-advanced.min.js"></script>
      <!-- END: Page JS-->
+
+     {{-- chart cdn --}}
 
     <script>
       $(window).on('load',  function(){
