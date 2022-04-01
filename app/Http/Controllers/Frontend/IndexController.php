@@ -17,7 +17,7 @@ class IndexController extends Controller
         $categorys = Category::all();
         $sliders = Slider::all();
         $lates_products = Product::orderBy('id', 'DESC')->limit(5)->get();
-        $hot_deals = Product::where('hot_deals', '1')->limit(2)->get();
+        $hot_deals = Product::where('hot_deals', '1')->limit(5)->get();
         return view('frontend.index', compact('sliders', 'categorys', 'lates_products', 'hot_deals'));
     }
 
