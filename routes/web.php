@@ -182,9 +182,9 @@ Route::middleware('auth')->group(function()
     Route::get('category/wise/product/{id}', [CheckoutController::class, 'CategoryProduct'])->name('category.product');
 });
 
-//orders
-// Route::middleware('auth')->group(function()
-// {
+// orders
+Route::middleware('auth')->group(function()
+{
    Route::get('pending-orders',[OrderController::class,'pendingOrder'])->name('pending-orders');
    Route::get('cancel/order/{id}',[OrderController::class,'cancelDeliver'])->name('order.cancel');
    Route::get('orders-view/{id}',[OrderController::class,'viewOrders']);
@@ -193,7 +193,7 @@ Route::middleware('auth')->group(function()
    Route::get('cancel-orders',[OrderController::class,'cancelOrders'])->name('cancel-orders');
    Route::get('confirm/order/{id}',[OrderController::class,'orderCOnfirm'])->name('order.confirm');
    Route::get('deliver/order/{id}',[OrderController::class,'orderDeliver'])->name('order.deliver');
-// });
+});
 
 
 Route::middleware('auth')->group(function()
