@@ -85,6 +85,9 @@
         <ul class="sub-menu" aria-expanded="false">
             <li class=" nav-item"><a href="{{ route('delivered-orders') }}"  class="d-flex align-items-center"><i data-feather="mail"></i>Delivered Orders</a></li>
         </ul>
+        <ul class="sub-menu" aria-expanded="false">
+            <li class=" nav-item"><a href="{{ route('cancel-orders') }}"  class="d-flex align-items-center"><i data-feather="mail"></i>Cancel Orders</a></li>
+        </ul>
     </li>
 
     <li class=" nav-item"><a  href="{{ route('division') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Division</span></a>

@@ -134,59 +134,80 @@ Route::get('state-delete/{id}', [ShippingAreaController::class, 'stateDestroy'])
 
 Route::get('product/details/{id}', [IndexController::class, 'ProductDetails'])->name('product.details');
 
+Route::middleware('auth')->group(function()
+{
+    // code for frontend cart
+    Route::get('product/view/modal/{id}', [IndexController::class, 'productViewAjax']);
+    // add to cart
+    Route::post('cart/data/store/{id}', [CartController::class, 'addToCart']);
+    //mini cart
+    Route::get('product/mini/cart', [CartController::class, 'miniCart']);
+    Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'miniCartRemove']);
+});
 
-// code for frontend cart
-Route::get('product/view/modal/{id}', [IndexController::class, 'productViewAjax']);
-// add to cart
-Route::post('cart/data/store/{id}', [CartController::class, 'addToCart']);
-//mini cart
-Route::get('product/mini/cart', [CartController::class, 'miniCart']);
-Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'miniCartRemove']);
+Route::middleware('auth')->group(function()
+{
+    // wishlist routes
+    Route::post('addTo/wishlist/{product_id}', [CartController::class, 'addToWishlist']);
+    Route::get('view/wishlist', [WishlistController::class, 'ViewWishlist'])->name('view.wishlist');
+    Route::get('get/wishlist/product', [WishlistController::class, 'GetWishlist']);
+    Route::get('/wishlist/remove/{id}', [WishlistController::class, 'DestoryWishlist']);
+});
 
-// wishlist routes
-Route::post('addTo/wishlist/{product_id}', [CartController::class, 'addToWishlist']);
-Route::get('view/wishlist', [WishlistController::class, 'ViewWishlist'])->name('view.wishlist');
-Route::get('get/wishlist/product', [WishlistController::class, 'GetWishlist']);
-Route::get('/wishlist/remove/{id}', [WishlistController::class, 'DestoryWishlist']);
+Route::middleware('auth')->group(function()
+{
+    // cart page routes
+    Route::get('view/cart/product', [CartController::class, 'ViewCartProduct'])->name('view.cart');
+    Route::get('get/cart/product', [CartController::class, 'GetCartProduct']);
+    Route::get('cart/remove/{id}', [CartController::class, 'destory']);
+    Route::get('/cart/increment/{id}', [CartController::class, 'cartIncrement']);
+    Route::get('/cart/decrement/{id}', [CartController::class, 'cartDecrement']);
+});
 
-// cart page routes
-Route::get('view/cart/product', [CartController::class, 'ViewCartProduct'])->name('view.cart');
-Route::get('get/cart/product', [CartController::class, 'GetCartProduct']);
-Route::get('cart/remove/{id}', [CartController::class, 'destory']);
-Route::get('/cart/increment/{id}', [CartController::class, 'cartIncrement']);
-Route::get('/cart/decrement/{id}', [CartController::class, 'cartDecrement']);
-
-//checkout
-Route::get('user/checkout', [CartController::class, 'checkoutCreate'])->name('checkout');
-Route::get('district-get/ajax/{division_id}', [CheckoutController::class, 'getDistrictWithAjax']);
-Route::get('state-get/ajax/{district_id}', [CheckoutController::class, 'getStateWithAjax']);
-Route::post('/order/confirm', [CheckoutController::class, 'ConfirmOrder'])->name('checkout.store');
-
+Route::middleware('auth')->group(function()
+{
+    //checkout
+    Route::get('user/checkout', [CartController::class, 'checkoutCreate'])->name('checkout');
+    Route::get('district-get/ajax/{division_id}', [CheckoutController::class, 'getDistrictWithAjax']);
+    Route::get('state-get/ajax/{district_id}', [CheckoutController::class, 'getStateWithAjax']);
+    Route::post('/order/confirm', [CheckoutController::class, 'ConfirmOrder'])->name('checkout.store');
+});
 
 // user profile
-
-Route::get('user/profile/view', [CheckoutController::class, 'UserProfile'])->name('user.profile');
-Route::get('user/profile/order/items/{id}', [CheckoutController::class, 'UserProfileItems'])->name('user.profile.order.items');
-Route::get('subcatgory/wise/product/{id}', [CheckoutController::class, 'SubcategoryProduct'])->name('subcategory.product');
-Route::get('category/wise/product/{id}', [CheckoutController::class, 'CategoryProduct'])->name('category.product');
+Route::middleware('auth')->group(function()
+{
+    Route::get('user/profile/view', [CheckoutController::class, 'UserProfile'])->name('user.profile');
+    Route::get('user/profile/order/items/{id}', [CheckoutController::class, 'UserProfileItems'])->name('user.profile.order.items');
+    Route::get('subcatgory/wise/product/{id}', [CheckoutController::class, 'SubcategoryProduct'])->name('subcategory.product');
+    Route::get('category/wise/product/{id}', [CheckoutController::class, 'CategoryProduct'])->name('category.product');
+});
 
 //orders
-Route::get('pending-orders',[OrderController::class,'pendingOrder'])->name('pending-orders');
-Route::get('orders-view/{id}',[OrderController::class,'viewOrders']);
-Route::get('processing-orders',[OrderController::class,'processingOrder'])->name('processing-orders');
-Route::get('delivered-orders',[OrderController::class,'deliveredOrders'])->name('delivered-orders');
-Route::get('confirm/order/{id}',[OrderController::class,'orderCOnfirm'])->name('order.confirm');
-Route::get('deliver/order/{id}',[OrderController::class,'orderDeliver'])->name('order.deliver');
+// Route::middleware('auth')->group(function()
+// {
+   Route::get('pending-orders',[OrderController::class,'pendingOrder'])->name('pending-orders');
+   Route::get('cancel/order/{id}',[OrderController::class,'cancelDeliver'])->name('order.cancel');
+   Route::get('orders-view/{id}',[OrderController::class,'viewOrders']);
+   Route::get('processing-orders',[OrderController::class,'processingOrder'])->name('processing-orders');
+   Route::get('delivered-orders',[OrderController::class,'deliveredOrders'])->name('delivered-orders');
+   Route::get('cancel-orders',[OrderController::class,'cancelOrders'])->name('cancel-orders');
+   Route::get('confirm/order/{id}',[OrderController::class,'orderCOnfirm'])->name('order.confirm');
+   Route::get('deliver/order/{id}',[OrderController::class,'orderDeliver'])->name('order.deliver');
+// });
 
-// pie chart
-Route::get('/get/pie', [AdminController::class, 'pieChart']);
-// for DoughnutChartOne
-Route::get('/get/donut', [AdminController::class, 'DoughnutChartOne']);
-//for BarChart
-Route::get('/get/bar', [AdminController::class, 'barChart']);
-//for line
-Route::get('/get/line', [AdminController::class, 'lineChart']);
 
-// about us
-Route::get('/about/us', [IndexController::class, 'AboutUs'])->name('about.us');
-Route::get('/contact/us', [IndexController::class, 'ContactUs'])->name('contact.us');
+Route::middleware('auth')->group(function()
+{
+    // pie chart
+    Route::get('/get/pie', [AdminController::class, 'pieChart']);
+    // for DoughnutChartOne
+    Route::get('/get/donut', [AdminController::class, 'DoughnutChartOne']);
+    //for BarChart
+    Route::get('/get/bar', [AdminController::class, 'barChart']);
+    //for line
+    Route::get('/get/line', [AdminController::class, 'lineChart']);
+
+    // about us
+    Route::get('/about/us', [IndexController::class, 'AboutUs'])->name('about.us');
+    Route::get('/contact/us', [IndexController::class, 'ContactUs'])->name('contact.us');
+});
