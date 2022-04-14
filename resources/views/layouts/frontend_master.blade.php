@@ -55,10 +55,10 @@
 							<div class="col-md-7 col-sm-7 col-xs-12">
 								<div class="topbar-left d-flex">
 									<div class="email">
-										<i class="fa fa-envelope" aria-hidden="true"></i>Email: tivatheme@gmail.com
+										<i class="fa fa-envelope" aria-hidden="true"></i>Email: organicecommerce@gmail.com
 									</div>
 									<div class="skype">
-										<i class="fa fa-skype" aria-hidden="true"></i>Skype: tivatheme
+										<i class="fa fa-skype" aria-hidden="true"></i>Skype: organicecommerce
 									</div>
 								</div>
 							</div>
@@ -111,30 +111,16 @@
 										<div class="dropdown-toggle" data-toggle="dropdown">
 											<img src="{{ asset('frontend') }}/img/language-en.jpg" alt="Language English">
 										</div>
-										<div class="dropdown-menu">
-											<div class="item">
-												<a href="#" title="Language English"><img src="{{ asset('frontend') }}/img/language-en.jpg" alt="Language English"> English</a>
-											</div>
-											<div class="item">
-												<a href="#" title="Language French"><img src="{{ asset('frontend') }}/img/language-fr.jpg" alt="Language French"> French</a>
-											</div>
-										</div>
 									</div>
 
 									<!-- Currency -->
 									<div class="dropdown currency">
 										<div class="dropdown-toggle" data-toggle="dropdown">
-											USD
+											BD
 										</div>
 										<div class="dropdown-menu">
 											<div class="item">
-												<a href="#" title="USD">USD</a>
-											</div>
-											<div class="item">
-												<a href="#" title="EUR">EUR</a>
-											</div>
-											<div class="item">
-												<a href="#" title="GBP">GBP</a>
+												<a href="#" title="USD">BD</a>
 											</div>
 										</div>
 									</div>
@@ -184,12 +170,17 @@
 										</li>
 
 										<li>
-											<a href="#">About Us</a>
+											<a href="{{ route('about.us') }}">About Us</a>
 										</li>
 
 										<li>
-											<a href="#">Contact</a>
+											<a href="{{ route('contact.us') }}">Contact</a>
 										</li>
+
+                                        <li>
+											<a href="{{ route('user.profile') }}">My Order</a>
+										</li>
+
 									</ul>
 								</div>
 							</div>
@@ -229,12 +220,12 @@
 								</div>
 
 								<!-- Search -->
-								<div class="form-search">
+								{{-- <div class="form-search">
 									<form action="#" method="get">
 										<input type="text" class="form-input" placeholder="Search">
 										<button type="submit" class="fa fa-search"></button>
 									</form>
-								</div>
+								</div> --}}
 							</div>
 						</div>
 					</div>
@@ -259,7 +250,7 @@
 								<div class="block text">
 									<div class="block-content">
 										<a href="home-2.html" class="logo-footer">
-											<img src="{{ asset('frontend') }}/img/logo-2.png" alt="Logo">
+                                            <img class="img-responsive" src="http://127.0.0.1:8000/frontend/img/logo.png" alt="Logo">
 										</a>
 
 										<p>
@@ -291,7 +282,9 @@
 											<li><a href="#">New products</a></li>
 											<li><a href="#">Best sellers</a></li>
 											<li><a href="#">Terms and conditions</a></li>
-											<li><a href="#">Our stores</a></li>
+                                            <li>
+                                                <a href="{{ route('about.us') }}">About Us</a>
+                                            </li>
 											<li><a href="#">Contact us</a></li>
 										</ul>
 									</div>
@@ -299,17 +292,15 @@
 							</div>
 
 							<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 footer-col">
+
 								<div class="block menu">
 									<h2 class="block-title">Your Account</h2>
 
 									<div class="block-content">
 										<ul>
-											<li><a href="#">My orders</a></li>
-											<li><a href="#">My merchandise returns</a></li>
-											<li><a href="#">My credit slips</a></li>
-											<li><a href="#">My addresses</a></li>
-											<li><a href="#">My personal info</a></li>
-											<li><a href="#">My vouchers</a></li>
+                                            <a href="{{ route('user.profile') }}">My Order</a>
+											<li><a href="{{ route('view.wishlist') }}">My Wishlists</a></li>
+
 										</ul>
 									</div>
 								</div>
@@ -326,7 +317,8 @@
 													<i class="zmdi zmdi-home"></i>
 												</div>
 												<div>
-													<span>123 Suspendis matti, VST District, NY Accums, North American</span>
+													<span>Salman Mansion (9th floor),Mogbazar ,
+                                                        New Eskaton ,Romna Dhaka-1217 </span>
 												</div>
 											</div>
 											<div class="item d-flex">
@@ -334,7 +326,7 @@
 													<i class="zmdi zmdi-phone-in-talk"></i>
 												</div>
 												<div>
-													<span>0123-456-78910<br>0987-654-32100</span>
+													<span>0191-471-6755<br>0152-141-5098</span>
 												</div>
 											</div>
 											<div class="item d-flex">
@@ -342,7 +334,7 @@
 													<i class="zmdi zmdi-email"></i>
 												</div>
 												<div>
-													<span><a href="mailto:support@domain.com">support@domain.com</a><br><a href="mailto:contact@domain.com">contact@domain.com</a></span>
+													<span><a href="mailto:support@domain.com">support@organicecommerce.com</a><br><a href="mailto:contact@organicecommerce.com">contact@organicecommerce.com</a></span>
 												</div>
 											</div>
 										</div>
@@ -360,7 +352,7 @@
 							<img src="{{ asset('frontend') }}/img/payment.png" alt="Payment">
 						</div>
 
-								<div class="copyright"><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></div>
+								<div class="copyright"><a target="_blank" href="https://www.organicecommerce">Organic E-commerce</a></div>
 							</div>
 				</div>
 			</footer>

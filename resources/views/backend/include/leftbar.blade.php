@@ -41,6 +41,9 @@
         <li class=" navigation-header"><span data-i18n="Apps &amp; Pages">Apps &amp; Pages</span><i data-feather="more-horizontal"></i>
         </li>
 
+        <li class=" nav-item"><a  href="{{ route('all.banner') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Banner</span></a>
+        </li>
+
         <li class=" nav-item"><a  href="{{ route('all.brand') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Brand</span></a>
         </li>
 
@@ -67,6 +70,7 @@
               <li class=" nav-item"><a href="{{ route('view.product') }}"  class="d-flex align-items-center"><i data-feather="mail"></i>View Product</a></li>
           </ul>
       </li>
+
       <li>
         <a href="javascript: void(0);" class="has-arrow waves-effect">
           <i data-feather="mail"></i>
@@ -82,15 +86,16 @@
             <li class=" nav-item"><a href="{{ route('delivered-orders') }}"  class="d-flex align-items-center"><i data-feather="mail"></i>Delivered Orders</a></li>
         </ul>
     </li>
-      <li class=" nav-item"><a  href="{{ route('division') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Division</span></a>
-      </li>
 
-      <li class=" nav-item"><a  href="{{ route('district') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">District</span></a>
-      </li>
+    <li class=" nav-item"><a  href="{{ route('division') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">Division</span></a>
+    </li>
 
-      <li class=" nav-item"><a  href="{{ route('state') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">State</span></a>
-      </li>
+    <li class=" nav-item"><a  href="{{ route('district') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">District</span></a>
+    </li>
 
-      </ul>
-    </div>
-  </div>
+    <li class=" nav-item"><a  href="{{ route('state') }}" class="d-flex align-items-center"><i data-feather="mail"></i><span class="menu-title text-truncate" data-i18n="Email">State</span></a>
+    </li>
+
+    </ul>
+</div>
+</div>

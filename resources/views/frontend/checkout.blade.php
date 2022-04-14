@@ -71,7 +71,7 @@
                                                     <input type="text"
                                                         class="form-control unicase-form-control text-input"
                                                         name="shipping_phone" id="exampleInputEmail1"
-                                                        placeholder="full name"  value="{{ Auth::user()->phone }}"
+                                                        placeholder="Phone Number"  value="{{ Auth::user()->phone }}"
                                                         >
                                                         @error('shipping_phone')
                                                         <span class="text-danger">{{ $message }}</span>

@@ -42,12 +42,20 @@ class CheckoutController extends Controller
             'district_id' => 'required',
             'state_id' => 'required',
             'shipping_email' => 'required | email',
-            'shipping_phone' => 'required|numeric|size:11',
+            'shipping_phone' => 'required|numeric|regex:/[0-9]{8}/',
             'post_code' => 'required',
             'payment_method' => 'required',
         ]);
 
         $total_amount = Cart::total();
+        $carts = Cart::content();
+
+        foreach ($carts as $pro) {
+            $product = Product::where('id',$pro->id)->first();
+            if($product->product_qty < $pro->qty){
+                return Redirect()->route('checkout');
+            }
+        }
 
         $order_id = Order::insertGetId([
             'user_id' => Auth::id(),
@@ -69,7 +77,6 @@ class CheckoutController extends Controller
             'created_at' => Carbon::now(),
         ]);
 
-        $carts = Cart::content();
         foreach ($carts as $cart) {
             OrderItem::insert([
                 'order_id' => $order_id,
@@ -93,6 +100,7 @@ class CheckoutController extends Controller
             'message' => 'Your Order Place Success',
             'alert-type' => 'success'
         );
+
         return Redirect()->route('user.profile')->with($notification);
     }
 

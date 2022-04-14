@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\WishlistController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ShippingAreaController;
+use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CheckoutController;
 use App\Models\Admin\Product;
 
@@ -48,6 +49,12 @@ Route::post('/logout', [AdminController::class, 'destroy'])
 
 Route::get('/dashboard', [IndexController::class, 'index'])->middleware(['auth:sanctum,web', 'verified']);
 
+// routes for brand
+Route::prefix('banner/')->group(function () {
+    Route::get('show', [BannerController::class, 'BannerView'])->name('all.banner');
+    Route::post('add', [BannerController::class, 'BannerAdd'])->name('add.banner');
+    Route::get('delete/{id}', [BannerController::class, 'BannerDelete'])->name('delete.banner');
+});
 // routes for brand
 Route::prefix('brand/')->group(function () {
     Route::get('show', [Brancontroller::class, 'BrandView'])->name('all.brand');
@@ -179,3 +186,7 @@ Route::get('/get/donut', [AdminController::class, 'DoughnutChartOne']);
 Route::get('/get/bar', [AdminController::class, 'barChart']);
 //for line
 Route::get('/get/line', [AdminController::class, 'lineChart']);
+
+// about us
+Route::get('/about/us', [IndexController::class, 'AboutUs'])->name('about.us');
+Route::get('/contact/us', [IndexController::class, 'ContactUs'])->name('contact.us');
